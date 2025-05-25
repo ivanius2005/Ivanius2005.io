@@ -27,20 +27,13 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     return;
   }
 
-  // Lógica para destinatario dinámico
-  // Sustituye 'correo_especial@ejemplo.com' y 'correo_habitual@ejemplo.com' por los que tú quieras
-  let destinatario = (email === "correo_especial@ejemplo.com")
-    ? "correo_destino_especial@ejemplo.com"
-    : "correo_habitual@ejemplo.com";
-
   // Envío con EmailJS
   emailjs.send("service_1v4n1u5", "template_og1who8", {
       nombre: nombre,
       apellido1: apellido1,
       apellido2: apellido2,
       email: email,
-      telefono: telefono,
-      destinatario: destinatario
+      telefono: telefono
     })
     .then(function(response) {
       msg = '¡Formulario enviado correctamente!';
