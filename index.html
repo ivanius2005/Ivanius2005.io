@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portfolio DevOps</title>
+  <style>
+    :root {
+      --green-razer: #00ff00;
+      --black-bg: #000000;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
 
+    body {
+      margin: 0;
+      background-color: var(--black-bg);
+      color: var(--green-razer);
+      font-family: var(--font-mono);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .terminal-box {
+      background-color: #0d0d0d;
+      border: 1px solid var(--green-razer);
+      padding: 2rem;
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 10px var(--green-razer);
+    }
+
+    .blinking-cursor {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: var(--green-razer);
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>&lt;/devops&gt; portafolio</h1>
+    <p>Diseño web | Infraestructura | Automatización | Linux lover</p>
+  </header>
+
+  <div class="terminal-box">
+    <p>$ Bienvenido a mi terminal digital.</p>
+    <p>$ Aquí encontrarás mis proyectos, habilidades y contacto.</p>
+    <p class="blinking-cursor">_</p>
+  </div>
+</body>
+</html>
