@@ -101,33 +101,37 @@
 
 -->  
 
-<div class="terminal-box">
-  <form id="contactForm" autocomplete="off" novalidate>
-    <label>Nombre*<br>
-      <input type="text" name="nombre" required>
-    </label><br><br>
-    <label>Apellido 1*<br>
-      <input type="text" name="apellido1" required>
-    </label><br><br>
-    <label>Apellido 2<br>
-      <input type="text" name="apellido2">
-    </label><br><br>
-    <label>Email*<br>
-      <input type="email" name="email" required>
-    </label><br><br>
-    <label>Teléfono<br>
-      <input type="tel" name="telefono">
-    </label><br><br>
-    <button type="submit">Enviar</button>
-    <div id="formMsg" style="margin-top:10px;"></div>
-  </form>
-</div>
-
+  <div class="terminal-box">
+    <form id="contactForm" autocomplete="off" novalidate>
+      <label>Nombre*<br>
+        <input type="text" name="nombre" required>
+      </label><br><br>
+      <label>Apellido 1*<br>
+        <input type="text" name="apellido1" required>
+      </label><br><br>
+      <label>Apellido 2<br>
+        <input type="text" name="apellido2">
+      </label><br><br>
+      <label>Email*<br>
+        <input type="email" name="email" required>
+      </label><br><br>
+      <label>Teléfono<br>
+        <input type="tel" name="telefono">
+      </label><br><br>
+      <button type="submit">Enviar</button>
+      <div id="formMsg" style="margin-top:10px;"></div>
+    </form>
+  </div>
 
   <div class="terminal-box">
     <p>$ Bienvenido a mi terminal digital.</p>
     <p>$ Aquí encontrarás mis proyectos, habilidades y contacto.</p>
     <p class="blinking-cursor">_</p>
   </div>
+
+  <!-- Carga la librería de EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <!-- Carga tu script personalizado -->
+  <script src="Form_contacto.js"></script>
 </body>
 </html>
