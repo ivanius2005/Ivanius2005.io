@@ -1,36 +1,245 @@
-<!-- Cabecera estilo Nothing -->
-<header class="main-header">
-  <div class="logo-area">
-    <span class="logo-nothing">NOTHING (Ø)</span>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio DevOps Retro-Hacker</title>
+  <!-- Fuente retro tipo Nothing -->
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'ndot57';
+      src: url('https://cdn.shopify.com/s/files/1/0584/0932/0622/t/1/assets/fonts-ndot57.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    :root {
+      --green-razer: #00ff00;
+      --black-bg: #000000;
+      --gray-bg: #181818;
+      --font-mono: 'Share Tech Mono', monospace;
+      --font-nothing: 'ndot57', 'Share Tech Mono', monospace;
+    }
+    body {
+      background: var(--black-bg);
+      color: var(--green-razer);
+      font-family: var(--font-mono);
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+    /* Fondo líneas verdes tipo terminal */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,0,0.05),
+        rgba(0,255,0,0.05) 1px,
+        transparent 1px,
+        transparent 22px
+      );
+      z-index: 0;
+    }
+    /* Borde superior vikingo SVG */
+    .viking-border-top {
+      width: 100vw;
+      height: 32px;
+      background: transparent;
+      margin-bottom: -10px;
+      z-index: 10;
+      position: relative;
+    }
+    .viking-border-top svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(100%) saturate(5000%) hue-rotate(80deg);
+    }
+    /* Cabecera estilo Nothing */
+    .main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2vw;
+      background: #111;
+      border-bottom: 2px solid var(--green-razer);
+      font-family: var(--font-nothing);
+      letter-spacing: 0.12em;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .logo-area {
+      flex: 1;
+    }
+    .logo-nothing {
+      font-size: 2.1rem;
+      font-family: var(--font-nothing);
+      letter-spacing: 0.15em;
+    }
+    nav {
+      flex: 3;
+    }
+    .main-menu {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+    .main-menu li a {
+      color: var(--green-razer);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-family: inherit;
+      letter-spacing: 0.09em;
+      transition: color 0.2s;
+      border-bottom: 1.5px solid transparent;
+      padding-bottom: 2px;
+    }
+    .main-menu li a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px var(--green-razer);
+      border-bottom: 1.5px solid var(--green-razer);
+    }
+    .icon-area {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.7rem;
+      font-size: 2rem;
+    }
+    /* Caja terminal retro */
+    .terminal-box {
+      background: rgba(24,24,24,0.97);
+      border: 1.5px solid var(--green-razer);
+      border-radius: 12px;
+      box-shadow: 0 0 24px #00ff0033, 0 2px 24px #000;
+      margin: 2.5rem auto 1.5rem auto;
+      padding: 2.2rem 2.5rem;
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    /* Footer con iconos sociales */
+    footer {
+      margin-top: 2rem;
+      padding-bottom: 1.5rem;
+      text-align: center;
+      background: transparent;
+    }
+    .social-icons {
+      margin-top: 0.7rem;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      transition: transform 0.2s, filter 0.2s;
+      vertical-align: middle;
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px #00ff00cc);
+      border-radius: 6px;
+      background: #101010;
+      padding: 2px;
+      transition: filter 0.2s, background 0.2s;
+    }
+    .social-icons a:hover img {
+      filter: drop-shadow(0 0 12px #00ff00ff) brightness(1.2);
+      background: #00ff0011;
+      transform: scale(1.12) rotate(-5deg);
+    }
+    @media (max-width: 700px) {
+      .main-header, .terminal-box {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+      }
+      .main-menu {
+        gap: 1rem;
+      }
+      .logo-nothing {
+        font-size: 1.2rem;
+      }
+      .terminal-box {
+        padding: 1.2rem 0.7rem;
+        max-width: 98vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Borde vikingo superior -->
+  <div class="viking-border-top">
+    <!-- SVG vikingo decorativo (puedes cambiarlo por otro SVG más elaborado si lo deseas) -->
+    <svg viewBox="0 0 100 8" preserveAspectRatio="none">
+      <polyline points="0,8 10,2 20,6 30,2 40,7 50,2 60,7 70,2 80,6 90,2 100,8"
+        style="fill:none;stroke:#00ff00;stroke-width:2"/>
+      <circle cx="10" cy="2" r="1.2" fill="#00ff00"/>
+      <circle cx="30" cy="2" r="1.2" fill="#00ff00"/>
+      <circle cx="50" cy="2" r="1.2" fill="#00ff00"/>
+      <circle cx="70" cy="2" r="1.2" fill="#00ff00"/>
+      <circle cx="90" cy="2" r="1.2" fill="#00ff00"/>
+    </svg>
   </div>
-  <nav>
-    <ul class="main-menu">
-      <li><a href="#">Teléfono</a></li>
-      <li><a href="#">Audio</a></li>
-      <li><a href="#">CMF</a></li>
-      <li><a href="#">Tienda</a></li>
-      <li><a href="#">Comunidad</a></li>
-      <li><a href="#">Soporte</a></li>
-    </ul>
-  </nav>
-  <div class="icon-area">
-    <span class="icon-basket">🛒</span>
-    <span class="icon-user">👤</span>
+
+  <!-- Cabecera estilo Nothing -->
+  <header class="main-header">
+    <div class="logo-area">
+      <span class="logo-nothing">VIKING DEVOPS</span>
+    </div>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Proyectos</a></li>
+        <li><a href="#">Sobre mí</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="icon-area">
+      <span title="Carrito">🛒</span>
+      <span title="Usuario">👤</span>
+    </div>
+  </header>
+
+  <!-- Caja terminal retro-hacker -->
+  <div class="terminal-box">
+    <p><span style="color:#fff;">$</span> Bienvenido a mi terminal digital.</p>
+    <p><span style="color:#fff;">$</span> Aquí encontrarás mis proyectos, habilidades y contacto.</p>
+    <p><span style="color:#fff;">$</span> Inspiración retro-hacker y mitología vikinga.</p>
   </div>
-</header>
 
-<!-- Fuente Nothing (ndot57) -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap">
-<style>
-@font-face {
-  font-family: 'ndot57';
-  src: url('https://cdn.shopify.com/s/files/1/0584/0932/0622/t/1/assets/fonts-ndot57.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-</style>
-
-<div class="viking-border-top">
-  <!-- SVG decorativo, puedes buscar uno de estilo nórdico/vikingo en Freepik o similares -->
-  <img src="images/viking-border-top.svg" alt="Decoración vikinga" />
-</div>
+  <!-- Footer con iconos sociales -->
+  <footer>
+    <div class="terminal-box social-icons">
+      <p>$ Encuéntrame en:</p>
+      <a href="https://instagram.com/tuusuario" target="_blank" title="Instagram">
+        <img src="images/Instagram.png" alt="Instagram" />
+      </a>
+      <a href="https://paypal.me/tuusuario" target="_blank" title="Paypal">
+        <img src="images/Paypal.png" alt="Paypal" />
+      </a>
+      <a href="https://reddit.com/u/tuusuario" target="_blank" title="Reddit">
+        <img src="images/Reddit.png" alt="Reddit" />
+      </a>
+      <a href="https://t.me/tuusuario" target="_blank" title="Telegram">
+        <img src="images/Telegram.png" alt="Telegram" />
+      </a>
+      <a href="https://wa.me/123456789" target="_blank" title="Whatsapp">
+        <img src="images/Whatsapp.png" alt="Whatsapp" />
+      </a>
+      <a href="https://youtube.com/@tuusuario" target="_blank" title="Youtube">
+        <img src="images/Youtube.png" alt="Youtube" />
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
