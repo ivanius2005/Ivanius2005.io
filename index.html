@@ -4,62 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi Portfolio DevOps</title>
-  <style>
-    :root {
-      --green-razer: #00ff00;
-      --black-bg: #000000;
-      --font-mono: 'Courier New', Courier, monospace;
-    }
-
-    body {
-      margin: 0;
-      background-color: var(--black-bg);
-      color: var(--green-razer);
-      font-family: var(--font-mono);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    header {
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      opacity: 0.8;
-    }
-
-    .terminal-box {
-      background-color: #0d0d0d;
-      border: 1px solid var(--green-razer);
-      padding: 2rem;
-      margin-top: 2rem;
-      width: 90%;
-      max-width: 800px;
-      box-shadow: 0 0 10px var(--green-razer);
-    }
-
-    .blinking-cursor {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: var(--green-razer);
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-  </style>
+  <link rel="stylesheet" href="web.css">
 </head>
 <body>
   <header>
@@ -136,31 +81,29 @@
 
 <!-- Esto SIEMPRE es el bottom (hay que pillar alguna licencia)-->
 
-<bottom>
-
+<footer>
   <div class="terminal-box" style="text-align: center;">
-  <p>$ Encuéntrame en:</p>
-  <a href="https://instagram.com/tuusuario" target="_blank" title="Instagram">
-    <img src="images/Instagram.png" width="32" height="32" alt="Instagram" />
-  </a>
-  <a href="https://paypal.me/tuusuario" target="_blank" title="Paypal">
-    <img src="images/Paypal.png" width="32" height="32" alt="Paypal" />
-  </a>
-  <a href="https://reddit.com/u/tuusuario" target="_blank" title="Reddit">
-    <img src="images/Reddit.png" width="32" height="32" alt="Reddit" />
-  </a>
-  <a href="https://t.me/tuusuario" target="_blank" title="Telegram">
-    <img src="images/Telegram.png" width="32" height="32" alt="Telegram" />
-  </a>
-  <a href="https://wa.me/123456789" target="_blank" title="Whatsapp">
-    <img src="images/Whatsapp.png" width="32" height="32" alt="Whatsapp" />
-  </a>
-  <a href="https://youtube.com/@tuusuario" target="_blank" title="Youtube">
-    <img src="images/Youtube.png" width="32" height="32" alt="Youtube" />
-  </a>
-</div>
-
-</bottom>
+    <p>$ Encuéntrame en:</p>
+    <a href="https://instagram.com/tuusuario" target="_blank" title="Instagram">
+      <img src="images/Instagram.png" width="32" height="32" alt="Instagram" />
+    </a>
+    <a href="https://paypal.me/tuusuario" target="_blank" title="Paypal">
+      <img src="images/Paypal.png" width="32" height="32" alt="Paypal" />
+    </a>
+    <a href="https://reddit.com/u/tuusuario" target="_blank" title="Reddit">
+      <img src="images/Reddit.png" width="32" height="32" alt="Reddit" />
+    </a>
+    <a href="https://t.me/tuusuario" target="_blank" title="Telegram">
+      <img src="images/Telegram.png" width="32" height="32" alt="Telegram" />
+    </a>
+    <a href="https://wa.me/123456789" target="_blank" title="Whatsapp">
+      <img src="images/Whatsapp.png" width="32" height="32" alt="Whatsapp" />
+    </a>
+    <a href="https://youtube.com/@tuusuario" target="_blank" title="Youtube">
+      <img src="images/Youtube.png" width="32" height="32" alt="Youtube" />
+    </a>
+  </div>
+</footer>
 
 </body>
 </html>
