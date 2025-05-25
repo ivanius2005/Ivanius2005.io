@@ -1,0 +1,169 @@
+/* Fondo animado con líneas verdes sutiles tipo terminal */
+body {
+  background-color: var(--black-bg);
+  color: var(--green-razer);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,255,0,0.04),
+    rgba(0,255,0,0.04) 1px,
+    transparent 1px,
+    transparent 24px
+  );
+  z-index: 0;
+}
+
+/* Terminal box con efecto glass y glow */
+.terminal-box {
+  background: rgba(13,13,13,0.95);
+  border: 1.5px solid var(--green-razer);
+  border-radius: 12px;
+  box-shadow: 0 0 24px #00ff0044, 0 2px 24px #000;
+  backdrop-filter: blur(2px);
+  margin-top: 2rem;
+  padding: 2rem 2.5rem;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.3s;
+}
+
+.terminal-box:hover {
+  box-shadow: 0 0 32px #00ff0088, 0 2px 32px #000;
+}
+
+/* Encabezado */
+header h1 {
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px #00ff00cc, 0 2px 8px #000;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+/* Formulario */
+form label {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+form input, form button {
+  background: #101010;
+  color: #00ff00;
+  border: 1.5px solid #00ff00;
+  font-family: var(--font-mono);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+}
+
+form input:invalid {
+  border-color: #ff3333;
+}
+
+form button {
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00ff00 0%, #003300 100%);
+  color: #000;
+  box-shadow: 0 0 8px #00ff00aa;
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+form button:hover {
+  background: #000;
+  color: #00ff00;
+  border-color: #00ff88;
+  box-shadow: 0 0 16px #00ff00cc;
+}
+
+/* Mensaje de formulario */
+#formMsg {
+  min-height: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+/* Cursor parpadeante */
+.blinking-cursor {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--green-razer);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Iconos sociales */
+.terminal-box.social-icons {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.terminal-box.social-icons a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  transition: transform 0.2s, filter 0.2s;
+  vertical-align: middle;
+}
+
+.terminal-box.social-icons img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 6px #00ff00cc);
+  border-radius: 6px;
+  background: #101010;
+  padding: 2px;
+  transition: filter 0.2s, background 0.2s;
+}
+
+.terminal-box.social-icons a:hover img {
+  filter: drop-shadow(0 0 12px #00ff00ff) brightness(1.2);
+  background: #00ff0011;
+  transform: scale(1.12) rotate(-5deg);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .terminal-box {
+    padding: 1rem 0.7rem;
+    max-width: 98vw;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+}
