@@ -7,6 +7,7 @@
   <!-- Fuente retro tipo Nothing -->
   <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
+    /* Fuente Nothing */
     @font-face {
       font-family: 'ndot57';
       src: url('https://cdn.shopify.com/s/files/1/0584/0932/0622/t/1/assets/fonts-ndot57.ttf') format('truetype');
@@ -15,7 +16,7 @@
     }
     :root {
       --green-razer: #00ff00;
-      --black-bg: #000000;
+      --black-bg: #000;
       --gray-bg: #181818;
       --font-mono: 'Share Tech Mono', monospace;
       --font-nothing: 'ndot57', 'Share Tech Mono', monospace;
@@ -28,6 +29,7 @@
       min-height: 100vh;
       position: relative;
     }
+    /* Fondo líneas verdes tipo terminal */
     body::before {
       content: "";
       position: fixed;
@@ -42,11 +44,11 @@
       );
       z-index: 0;
     }
+    /* Cabecera fija y accesible */
     .main-header {
+      width: 100vw;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 2vw;
       background: #111;
       border-bottom: 2px solid var(--green-razer);
       font-family: var(--font-nothing);
@@ -54,42 +56,78 @@
       position: sticky;
       top: 0;
       z-index: 20;
+      min-height: 64px;
+    }
+    /* Botón hamburguesa */
+    .menu-btn {
+      margin-left: 1.2rem;
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      background: #00ff00;
+      border-radius: 2px;
+      margin-bottom: 4px;
+      transition: 0.2s;
     }
     .logo-area {
+      margin-left: 1.5rem;
       flex: 1;
     }
     .logo-nothing {
       font-size: 2.1rem;
       font-family: var(--font-nothing);
       letter-spacing: 0.15em;
-    }
-    nav {
-      flex: 3;
-    }
-    .main-menu {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-      align-items: center;
-    }
-    .main-menu li a {
-      color: var(--green-razer);
+      color: #00ff00;
       text-decoration: none;
-      font-size: 1.1rem;
-      font-family: inherit;
-      letter-spacing: 0.09em;
       transition: color 0.2s;
-      border-bottom: 1.5px solid transparent;
-      padding-bottom: 2px;
     }
-    .main-menu li a:hover {
+    .logo-nothing:hover {
       color: #fff;
-      text-shadow: 0 0 8px var(--green-razer);
-      border-bottom: 1.5px solid var(--green-razer);
+      text-shadow: 0 0 8px #00ff00;
     }
+    /* Menú lateral */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: #111;
+      border-right: 2px solid #00ff00;
+      padding-top: 4rem;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-menu.open {
+      left: 0;
+    }
+    .side-menu a {
+      color: #00ff00;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      border-bottom: 1px solid #00ff00;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background-color: #003300;
+      color: #fff;
+    }
+    /* Caja terminal retro */
     .terminal-box {
       background: rgba(24,24,24,0.97);
       border: 1.5px solid var(--green-razer);
@@ -137,9 +175,6 @@
         flex-direction: column;
         padding: 1rem 0.5rem;
       }
-      .main-menu {
-        gap: 1rem;
-      }
       .logo-nothing {
         font-size: 1.2rem;
       }
@@ -147,24 +182,32 @@
         padding: 1.2rem 0.7rem;
         max-width: 98vw;
       }
+      .side-menu {
+        width: 80vw;
+        min-width: 160px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Cabecera estilo Nothing -->
+  <!-- Cabecera con botón hamburguesa y logo -->
   <header class="main-header">
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div class="logo-area">
-      <span class="logo-nothing">VIKING DEVOPS</span>
+      <a class="logo-nothing" href="https://ivanius2005.github.io">VIKING DEVOPS</a>
     </div>
-    <nav>
-      <ul class="main-menu">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li><a href="#">Sobre mí</a></li>
-        <li><a href="https://ivanius2005.github.io/contacto">Contacto</a></li>
-      </ul>
-    </nav>
   </header>
+
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+    <a href="https://ivanius2005.github.io">Inicio</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Sobre mí</a>
+    <a href="https://ivanius2005.github.io/contacto">Contacto</a>
+  </nav>
 
   <!-- Caja terminal retro-hacker -->
   <div class="terminal-box">
@@ -197,5 +240,23 @@
       </a>
     </div>
   </footer>
+
+  <script>
+    // Menú hamburguesa accesible y ligero
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = sideMenu.classList.toggle('open');
+      sideMenu.setAttribute('aria-hidden', !isOpen);
+    });
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', function(event) {
+      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        sideMenu.classList.remove('open');
+        sideMenu.setAttribute('aria-hidden', true);
+      }
+    });
+  </script>
 </body>
 </html>
