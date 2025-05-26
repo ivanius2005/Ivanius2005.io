@@ -87,6 +87,18 @@ body::before {
   transform: translateX(250px);
 }
 
+<header class="main-header">
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo-area">
+    <a class="logo-nothing" id="logo" href="https://ivanius2005.github.io">VIKING DEVOPS</a>
+  </div>
+</header>
+
+
 /* Menú lateral */
 .side-menu {
   position: fixed;
