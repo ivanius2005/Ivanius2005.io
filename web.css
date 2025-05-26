@@ -1,3 +1,53 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  background: #181818;
+  border-bottom: 3px solid #00ff00;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.18em;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+.menu-btn span {
+  display: block;
+  height: 4px;
+  background: #00ff00;
+  border-radius: 2px;
+  width: 100%;
+}
+.logo-nothing {
+  color: #00ff00;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.logo-nothing:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #00ff00;
+}
+.header-bar {
+  width: 100vw;
+  height: 4px;
+  background: #00ff00;
+  box-shadow: 0 2px 8px #00ff00, 0 6px 0 #111, 0 7px 2px #00ff00;
+  margin-top: -3px;
+}
+
 /* Fondo líneas verdes tipo terminal */
 body {
   background: #000;
