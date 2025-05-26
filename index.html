@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio DevOps Retro-Hacker</title>
+  <!-- Fuente retro tipo Nothing -->
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Fuente Nothing */
+    @font-face {
+      font-family: 'ndot57';
+      src: url('https://cdn.shopify.com/s/files/1/0584/0932/0622/t/1/assets/fonts-ndot57.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    :root {
+      --green-razer: #00ff00;
+      --black-bg: #000;
+      --gray-bg: #181818;
+      --font-mono: 'Share Tech Mono', monospace;
+      --font-nothing: 'ndot57', 'Share Tech Mono', monospace;
+    }
+    body {
+      background: var(--black-bg);
+      color: var(--green-razer);
+      font-family: var(--font-mono);
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+    /* Fondo líneas verdes tipo terminal */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,0,0.05),
+        rgba(0,255,0,0.05) 1px,
+        transparent 1px,
+        transparent 22px
+      );
+      z-index: 0;
+    }
+    /* Cabecera fija y accesible */
+    .main-header {
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      background: #111;
+      border-bottom: 2px solid var(--green-razer);
+      font-family: var(--font-nothing);
+      letter-spacing: 0.12em;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 64px;
+    }
+    /* Botón hamburguesa */
+    .menu-btn {
+      margin-left: 1.2rem;
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      background: #00ff00;
+      border-radius: 2px;
+      margin-bottom: 4px;
+      transition: 0.2s;
+    }
+    .logo-area {
+      margin-left: 1.5rem;
+      flex: 1;
+    }
+    .logo-nothing {
+      font-size: 2.1rem;
+      font-family: var(--font-nothing);
+      letter-spacing: 0.15em;
+      color: #00ff00;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .logo-nothing:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #00ff00;
+    }
+    /* Menú lateral */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: #111;
+      border-right: 2px solid #00ff00;
+      padding-top: 4rem;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-menu.open {
+      left: 0;
+    }
+    .side-menu a {
+      color: #00ff00;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      border-bottom: 1px solid #00ff00;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background-color: #003300;
+      color: #fff;
+    }
+    /* Caja terminal retro */
+    .terminal-box {
+      background: rgba(24,24,24,0.97);
+      border: 1.5px solid var(--green-razer);
+      border-radius: 12px;
+      box-shadow: 0 0 24px #00ff0033, 0 2px 24px #000;
+      margin: 2.5rem auto 1.5rem auto;
+      padding: 2.2rem 2.5rem;
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    footer {
+      margin-top: 2rem;
+      padding-bottom: 1.5rem;
+      text-align: center;
+      background: transparent;
+    }
+    .social-icons {
+      margin-top: 0.7rem;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      transition: transform 0.2s, filter 0.2s;
+      vertical-align: middle;
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px #00ff00cc);
+      border-radius: 6px;
+      background: #101010;
+      padding: 2px;
+      transition: filter 0.2s, background 0.2s;
+    }
+    .social-icons a:hover img {
+      filter: drop-shadow(0 0 12px #00ff00ff) brightness(1.2);
+      background: #00ff0011;
+      transform: scale(1.12) rotate(-5deg);
+    }
+    @media (max-width: 700px) {
+      .main-header, .terminal-box {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+      }
+      .logo-nothing {
+        font-size: 1.2rem;
+      }
+      .terminal-box {
+        padding: 1.2rem 0.7rem;
+        max-width: 98vw;
+      }
+      .side-menu {
+        width: 80vw;
+        min-width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabecera con botón hamburguesa y logo -->
+  <header class="main-header">
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="logo-area">
+      <a class="logo-nothing" href="https://ivanius2005.github.io">VIKING DEVOPS</a>
+    </div>
+  </header>
+
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+    <a href="https://ivanius2005.github.io">Inicio</a>
+    <a href="#">Proyectos</a>
+    <a href="https://ivanius2005.github.io/sobre_mi">Sobre mí</a>
+  </nav>
+
+  <!-- Caja terminal retro-hacker -->
+  <div class="terminal-box">
+    <p><span style="color:#fff;">$</span> Bienvenido a mi terminal digital.</p>
+    <p><span style="color:#fff;">$</span> Aquí encontrarás mis proyectos, habilidades y contacto.</p>
+    <p><span style="color:#fff;">$</span> Inspiración retro-hacker y mitología vikinga.</p>
+  </div>
+
+  <!-- Footer con iconos sociales -->
+  <footer>
+    <div class="terminal-box social-icons">
+      <p>$ Encuéntrame en:</p>
+      <a href="https://instagram.com/tuusuario" target="_blank" title="Instagram">
+        <img src="images/Instagram.png" alt="Instagram" />
+      </a>
+      <a href="https://paypal.me/tuusuario" target="_blank" title="Paypal">
+        <img src="images/Paypal.png" alt="Paypal" />
+      </a>
+      <a href="https://reddit.com/u/tuusuario" target="_blank" title="Reddit">
+        <img src="images/Reddit.png" alt="Reddit" />
+      </a>
+      <a href="https://t.me/tuusuario" target="_blank" title="Telegram">
+        <img src="images/Telegram.png" alt="Telegram" />
+      </a>
+      <a href="https://wa.me/123456789" target="_blank" title="Whatsapp">
+        <img src="images/Whatsapp.png" alt="Whatsapp" />
+      </a>
+      <a href="https://youtube.com/@tuusuario" target="_blank" title="Youtube">
+        <img src="images/Youtube.png" alt="Youtube" />
+      </a>
+    </div>
+  </footer>
+
+
+
+  
+  <script>
+    // Menú hamburguesa accesible y ligero
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = sideMenu.classList.toggle('open');
+      sideMenu.setAttribute('aria-hidden', !isOpen);
+    });
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', function(event) {
+      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        sideMenu.classList.remove('open');
+        sideMenu.setAttribute('aria-hidden', true);
+      }
+    });
+  </script>
+</body>
+</html>
