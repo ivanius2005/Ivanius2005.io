@@ -7,7 +7,7 @@ menuBtn.addEventListener('click', function(e) {
   const isOpen = sideMenu.classList.toggle('open');
   sideMenu.setAttribute('aria-hidden', !isOpen);
 
-  // Añade o quita la clase que mueve el logo
+  // Mueve el logo cuando el menú está abierto
   if (isOpen) {
     logo.classList.add('logo-shift');
   } else {
